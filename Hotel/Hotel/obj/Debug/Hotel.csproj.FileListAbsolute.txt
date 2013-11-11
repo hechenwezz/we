@@ -1,0 +1,13 @@
+D:\软件开发\Hotel\Hotel\bin\Debug\Hotel.exe.config
+D:\软件开发\Hotel\Hotel\bin\Debug\Hotel.exe
+D:\软件开发\Hotel\Hotel\bin\Debug\Hotel.pdb
+D:\软件开发\Hotel\Hotel\obj\Debug\MainWindow.baml
+D:\软件开发\Hotel\Hotel\obj\Debug\MainWindow.g.cs
+D:\软件开发\Hotel\Hotel\obj\Debug\App.g.cs
+D:\软件开发\Hotel\Hotel\obj\Debug\Hotel_MarkupCompile.cache
+D:\软件开发\Hotel\Hotel\obj\Debug\Hotel.g.resources
+D:\软件开发\Hotel\Hotel\obj\Debug\Hotel.Properties.Resources.resources
+D:\软件开发\Hotel\Hotel\obj\Debug\Hotel.csproj.GenerateResource.Cache
+D:\软件开发\Hotel\Hotel\obj\Debug\Hotel.exe
+D:\软件开发\Hotel\Hotel\obj\Debug\Hotel.pdb
+D:\软件开发\Hotel\Hotel\obj\Debug\Hotel.csprojResolveAssemblyReference.cache
