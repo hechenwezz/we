@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace Hotel
+namespace Hotel.UI
 {
     /// <summary>
     /// App.xaml 的交互逻辑

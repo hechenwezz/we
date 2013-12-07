@@ -1,0 +1,156 @@
+﻿<Window x:Class="Hotel.UI.MainWondows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Name="mainWindows" WindowStartupLocation="CenterScreen" 
+        ResizeMode="CanMinimize" 
+      
+        Title="客房管理系统" Height="730" Width="1360"
+        >
+    <StackPanel >
+
+        <TabControl Margin="1,0,1,1" Height="690" >
+            <TabItem Header="        客房          "  Width=" 130" BorderBrush="White" Background="White" Margin="-4,-1,0,0">
+
+                <DataGrid Name="dgRoom" RowHeaderWidth="0"  Loaded="DataGrid_Loaded" AutoGenerateColumns="False" IsReadOnly="True"   MouseDoubleClick="DataGridRowMouseDoubleClick"  CanUserAddRows="False" CanUserSortColumns="False" Margin="-1,10,-1,-1" Background="White"   >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Binding="{Binding RoomNumber,UpdateSourceTrigger=PropertyChanged}" Header="房 间 号" Width="453" Foreground="Black"  />
+                        <DataGridTextColumn Binding="{Binding RoomType, UpdateSourceTrigger=PropertyChanged}" Header="房间类型" Width=" 453" ></DataGridTextColumn>
+                        <DataGridTextColumn Binding="{Binding RoomRate, UpdateSourceTrigger=PropertyChanged}" Header="房间标价" Width="440" ></DataGridTextColumn>
+
+
+                    </DataGrid.Columns >
+                    <DataGrid.ContextMenu >
+                        <ContextMenu >
+                            <!--<MenuItem Command="Copy"></MenuItem>-->
+                            <MenuItem Header="刷新" Click="Refresh"></MenuItem>
+
+
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
+
+            </TabItem>
+            <TabItem Header="客房管理 " Margin="-2,-1,0,0" Width=" 130" BorderBrush="White" Background="White" >
+
+                <DataGrid Name="dgRoomControl"  RowHeaderWidth="0"  Loaded="RoomControlDataGrid_Loaded" AutoGenerateColumns="False" IsReadOnly="False"    CanUserAddRows="False" CanUserSortColumns="False" Margin="-2,10,10,0" Height="662" VerticalAlignment="Top" Background="White" >
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Binding="{Binding RoomNumber,UpdateSourceTrigger=PropertyChanged}" Header="房 间 号" Width="453" Foreground="Black" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding RoomType, UpdateSourceTrigger=PropertyChanged}" Header="房间类型" Width=" 453" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding RoomRate, UpdateSourceTrigger=PropertyChanged}" Header="房间标价" Width="453" ></DataGridTextColumn>
+
+
+                        </DataGrid.Columns >
+                        <DataGrid.ContextMenu >
+                            <ContextMenu >
+
+                                <MenuItem Header="刷新" Click="RoomControlRefresh"></MenuItem>
+                                <MenuItem Click="AddRoom" Header="添加房间"></MenuItem>
+                                <MenuItem Click="UpdateRoom" Header="更改房间"></MenuItem>
+                                <!--<MenuItem Click="DeleteRoom " Header="删除房间"></MenuItem>
+                                <MenuItem Click="UpdateRoomRate " Header="更新房价"></MenuItem>-->
+
+
+
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                    </DataGrid>
+
+            </TabItem>
+            <TabItem Header="财务管理 " Margin="0,-1,0,0" Width=" 130" BorderBrush="White" Background="White">
+
+
+                <DataGrid Name="dgCheckOutBill"  RowHeaderWidth="0"  Loaded="CheckOutBillDataGrid_Loaded" AutoGenerateColumns="False" IsReadOnly="True"   CanUserAddRows="False" CanUserSortColumns="False" Margin="0,10,0,0" Background="White"  >
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Binding="{Binding BillNumber,UpdateSourceTrigger=PropertyChanged}" Header="账单号" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding RoomNumber, UpdateSourceTrigger=PropertyChanged}" Header="房间号" Width=" 170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding GuestName, UpdateSourceTrigger=PropertyChanged}" Header="客人姓名" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding NumberOfPeaple,UpdateSourceTrigger=PropertyChanged}" Header="入住人数" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding RoomRate, UpdateSourceTrigger=PropertyChanged}" Header="房价" Width=" 170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding ConsumptionPaid, UpdateSourceTrigger=PropertyChanged}" Header="返还金额" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Date,UpdateSourceTrigger=PropertyChanged}" Header="日期" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding WaiterName, UpdateSourceTrigger=PropertyChanged}" Header="服务员" Width=" 170" ></DataGridTextColumn>
+
+
+
+                        </DataGrid.Columns >
+                        <DataGrid.ContextMenu >
+                            <ContextMenu >
+
+                                <MenuItem Header="刷新" Click="CheckOutBillDataRefresh"></MenuItem>
+                                <!--<MenuItem Click="DeleteCheckOutBill" Header="删除账单"></MenuItem>-->
+                                <!--<MenuItem Click="UpdateRoom " Header="更改房间"></MenuItem>
+                                <MenuItem Click="DeleteRoom " Header="删除房间"></MenuItem>-->
+
+
+
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                    </DataGrid>
+                
+            </TabItem>
+            <TabItem Header="用户管理 " Margin="1,-1,-1,0" Width="130" BorderBrush="White" Background="White">
+
+
+                <DataGrid Name="dgUserData"  RowHeaderWidth="0"  Loaded="UserDataGrid_Loaded" AutoGenerateColumns="False" IsReadOnly="True"   CanUserAddRows="False" CanUserSortColumns="False" Margin="-2,10,10,35" Grid.ColumnSpan="2" Background="White"  >
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Binding="{Binding Name,UpdateSourceTrigger=PropertyChanged}" Header="姓名" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding IdentityCardNumber, UpdateSourceTrigger=PropertyChanged}" Header="身份证号码" Width=" 170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Sex, UpdateSourceTrigger=PropertyChanged}" Header="性别" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Address,UpdateSourceTrigger=PropertyChanged}" Header="住址" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Duty, UpdateSourceTrigger=PropertyChanged}" Header="职务" Width=" 170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding UserName, UpdateSourceTrigger=PropertyChanged}" Header="用户名" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Password,UpdateSourceTrigger=PropertyChanged}" Header="密码" Width="170" ></DataGridTextColumn>
+
+
+
+                        </DataGrid.Columns >
+                        <DataGrid.ContextMenu >
+                            <ContextMenu >
+
+                                <MenuItem Header="刷新" Click="UserDataRefresh"></MenuItem>
+                                <!--<MenuItem Click="DeleteCheckOutBill" Header="删除账单"></MenuItem>-->
+                                <!--<MenuItem Click="UpdateRoom " Header="更改房间"></MenuItem>
+                                <MenuItem Click="DeleteRoom " Header="删除房间"></MenuItem>-->
+
+
+
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                    </DataGrid>
+              
+                
+            </TabItem>
+            <TabItem Header="历史查询 " Margin="2,-1,-2,0" Width="130" Background="White" BorderBrush="White">
+
+                <DataGrid Name="dgCheckInData"  RowHeaderWidth="0"  Loaded="CheckInDataGrid_Loaded" AutoGenerateColumns="False" IsReadOnly="True"   CanUserAddRows="False" CanUserSortColumns="False" Margin="0,10,0,0" Background="White"  >
+                        <DataGrid.Columns >
+                            <DataGridTextColumn Binding="{Binding RoomNumber,UpdateSourceTrigger=PropertyChanged}" Header="房间号" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding GuestName, UpdateSourceTrigger=PropertyChanged}" Header="客人姓名" Width=" 170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding IdentityCardNumber, UpdateSourceTrigger=PropertyChanged}" Header="身份证号码" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Address,UpdateSourceTrigger=PropertyChanged}" Header="住址" Width="170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding TelephoneNumber, UpdateSourceTrigger=PropertyChanged}" Header="联系电话" Width=" 170" ></DataGridTextColumn>
+                            <DataGridTextColumn Binding="{Binding Date, UpdateSourceTrigger=PropertyChanged}" Header="入住日期" Width="170" ></DataGridTextColumn>
+
+
+
+                        </DataGrid.Columns >
+                        <DataGrid.ContextMenu >
+                            <ContextMenu >
+
+                                <MenuItem Header="刷新" Click="CheckInDataRefresh"></MenuItem>
+                                <!--<MenuItem Click="DeleteCheckOutBill" Header="删除账单"></MenuItem>-->
+                                <!--<MenuItem Click="UpdateRoom " Header="更改房间"></MenuItem>
+                                <MenuItem Click="DeleteRoom " Header="删除房间"></MenuItem>-->
+
+
+
+                            </ContextMenu>
+                        </DataGrid.ContextMenu>
+                    </DataGrid>
+              
+            </TabItem>
+        </TabControl>
+        <DataGrid Height="0"/>
+    </StackPanel>
+
+</Window>

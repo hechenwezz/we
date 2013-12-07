@@ -1,8 +1,15 @@
-﻿<Application x:Class="Hotel.App"
+﻿<Application x:Class="Hotel.UI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="MainWindow.xaml">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+             StartupUri="UI/LoginWindows.xaml"   >
+    
+      
+    
     <Application.Resources>
-         
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries >
+                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

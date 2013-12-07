@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\软件开发\Hotel\Hotel\obj\Debug\
+C:\Users\zz\Documents\GitHub\we\Hotel\Hotel\obj\Debug\
 Hotel
 none
 false
 DEBUG;TRACE
-D:\软件开发\Hotel\Hotel\App.xaml
-11151548125
+C:\Users\zz\Documents\GitHub\we\Hotel\Hotel\App.xaml
+7543839696
 
-5-2017746502
-12-1401562060
-MainWindow.xaml;
+52-1901287519
+151320802719
+UI\AddCheckInBillWindow.xaml;UI\AddGuestToRoom.xaml;UI\AddRoom.xaml;UI\CheckOutBillWindow.xaml;Dictionary1.xaml;UI\LoginWindows.xaml;UI\mainWondows.xaml;
 
 False
 

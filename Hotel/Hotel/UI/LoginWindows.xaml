@@ -1,0 +1,18 @@
+﻿<Window x:Class="Hotel.UI.LoginWindows"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="欢迎登陆" Height="300" Width="525"
+        Name="LoginWindow" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize" Loaded="Windows_Loaded" >
+
+    <Grid>
+        <Label Content="用户名" HorizontalAlignment="Left" Margin="67,76,0,0" VerticalAlignment="Top" />
+        <Label Content="密码" HorizontalAlignment="Left" Margin="80,116,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.352" />
+        <PasswordBox HorizontalAlignment="Left" Margin="148,116,0,0" VerticalAlignment="Top" Width="238" Height="20" Name="pwbPassword" Password="" />
+        <Button Content="确定" HorizontalAlignment="Left" Margin="312,190,0,0" VerticalAlignment="Top" Width="81" Name="btSuer" Click="btSuer_Click" Height="25" Background="White" BorderBrush="#FFE7DBDB" />
+        <Label Content="" HorizontalAlignment="Left" Margin="34,158,0,0" VerticalAlignment="Top" Width="456" Name="lbReminder" Foreground="Red" />
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="148,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="238" RenderTransformOrigin="0.5,0.5"
+                MaxLines=" 1" Name="tbxUserName"/>
+
+    </Grid>
+</Window>

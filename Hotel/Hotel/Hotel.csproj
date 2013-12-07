@@ -35,7 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -53,7 +56,79 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="BLL\AddCheckInBillBLL.cs" />
+    <Compile Include="BLL\AddCheckInBLL.cs" />
+    <Compile Include="BLL\AddCheckOutBillBLL.cs" />
+    <Compile Include="BLL\AddGuestBLL.cs" />
+    <Compile Include="BLL\AddRoomBLL.cs" />
+    <Compile Include="BLL\LoadCheckInDataBLL.cs" />
+    <Compile Include="BLL\LoadCheckOutBillDataBLL.cs" />
+    <Compile Include="BLL\LoadRoomDataBLL.cs" />
+    <Compile Include="BLL\LoadUserDataBLL.cs" />
+    <Compile Include="BLL\SelectRoomStateIsEmptyBLL.cs" />
+    <Compile Include="BLL\SelectRoomStateIsFullBLL.cs" />
+    <Compile Include="BLL\UpdateRoomBLL.cs" />
+    <Compile Include="BLL\UseIdSelectGuestBLL.cs" />
+    <Compile Include="BLL\UseRoomNumberSelectCheckInBillBLL.cs" />
+    <Compile Include="BLL\UseUserNameSelectUserBLL.cs" />
+    <Compile Include="COM\CheckIn.cs" />
+    <Compile Include="COM\CheckInBill.cs" />
+    <Compile Include="COM\CheckOutBill.cs" />
+    <Compile Include="COM\Guest.cs" />
+    <Compile Include="COM\OperationLog.cs" />
+    <Compile Include="COM\Room.cs" />
+    <Compile Include="COM\RoomShow.cs" />
+    <Compile Include="DAL\AddCheckInBillDAL.cs" />
+    <Compile Include="DAL\AddCheckInDAL.cs" />
+    <Compile Include="DAL\AddCheckOutBillDAL.cs" />
+    <Compile Include="DAL\AddGuestDAL.cs" />
+    <Compile Include="DAL\AddRoomDAL.cs" />
+    <Compile Include="DAL\LoadCheckInDataDAL.cs" />
+    <Compile Include="DAL\LoadCheckOutBillDataDAL.cs" />
+    <Compile Include="DAL\LoadRoomDataDAL.cs" />
+    <Compile Include="DAL\LoadUserDataDAL.cs" />
+    <Compile Include="DAL\SelectRoomStateIsEmptyDAL.cs" />
+    <Compile Include="DAL\SelectRoomStateIsFullDAL.cs" />
+    <Compile Include="DAL\UpdateRoomDAL.cs" />
+    <Compile Include="DAL\UseIdSelectGuestDAL.cs" />
+    <Compile Include="DAL\UseRoomNumberSelectCheckInBillDAL.cs" />
+    <Compile Include="DAL\UseUserNameSelectUserDAL.cs" />
+    <Compile Include="UI\AddCheckInBillWindow.xaml.cs">
+      <DependentUpon>AddCheckInBillWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AddGuestToRoom.xaml.cs">
+      <DependentUpon>AddGuestToRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AddRoom.xaml.cs">
+      <DependentUpon>AddRoom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CheckOutBillWindow.xaml.cs">
+      <DependentUpon>CheckOutBillWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\mainWondows.xaml.cs">
+      <DependentUpon>mainWondows.xaml</DependentUpon>
+    </Compile>
+    <Page Include="UI\AddCheckInBillWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AddGuestToRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AddRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\CheckOutBillWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionary1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\LoginWindows.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -61,10 +136,19 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="BLL\LoginBll.cs" />
+    <Compile Include="BLL\TestDatabaseLink.cs" />
+    <Compile Include="COM\User.cs" />
+    <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="DAL\SqlHelper.cs" />
+    <Compile Include="UI\LoginWindows.xaml.cs">
+      <DependentUpon>LoginWindows.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="UI\mainWondows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,6 +177,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
