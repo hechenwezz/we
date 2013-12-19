@@ -36,3 +36,5 @@ C:\Users\zz\Documents\GitHub\we\Hotel\Hotel\obj\Debug\UI\CheckOutBillWindow.g.cs
 C:\Users\zz\Documents\GitHub\we\Hotel\Hotel\obj\Debug\Dictionary1.baml
 C:\Users\zz\Documents\GitHub\we\Hotel\Hotel\obj\Debug\App.baml
 C:\Users\zz\Documents\GitHub\we\Hotel\Hotel\obj\Debug\App.g.cs
+C:\Users\zz\Documents\GitHub\we\Hotel\Hotel\obj\Debug\UI\AddUserWindow.baml
+C:\Users\zz\Documents\GitHub\we\Hotel\Hotel\obj\Debug\UI\AddUserWindow.g.cs

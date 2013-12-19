@@ -23,6 +23,7 @@ namespace Hotel.UI
     {
         public static int NumberOfPeaple {set ;get ;}
         public static Guid FirstGuestId { set; get; }
+        public MainWondowRefreshDelegate windowRefresh;
         public AddGuestToRoom()
         {
             InitializeComponent();
@@ -70,6 +71,7 @@ namespace Hotel.UI
                 FirstGuestId = guest.Id;
             };
             lbNumberOfPeaple.Content  = NumberOfPeaple;
+           
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -78,7 +80,9 @@ namespace Hotel.UI
             {
                 
                 AddCheckInBillWindow addCheckInBillWindow = new AddCheckInBillWindow();
+                addCheckInBillWindow.windowRefresh = windowRefresh;
                 addCheckInBillWindow.Show();
+         
                 addGuestToRoomWindow.Close();
 
             }

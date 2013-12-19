@@ -69,12 +69,12 @@ namespace Hotel.UI
                 else
                 {
                     UserName = user .UserName ;
-                    MainWondows mainWindows = new MainWondows();
+                    MainWondows   mainWindows = new MainWondows();
 
                     DataTable userTable = UseUserNameSelectUserBLL.useUserNameSelectUser(user);
                     DataRow userRow = userTable.Rows[0];
                     WaiterName  = (string)userRow["Name"];
-
+                   
                     mainWindows.Show();
                     LoginWindow.Close();
                 }
@@ -95,5 +95,22 @@ namespace Hotel.UI
                 Environment.Exit(0);//强制关闭应用程序
             }
         }
+
+       
+        /// <summary>
+        /// 在窗体中获取键盘的enter键
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoginWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                btSuer_Click(sender ,e);//调用窗体的“确定”事件
+       
+           }
+        }
+
+        
     }
 }

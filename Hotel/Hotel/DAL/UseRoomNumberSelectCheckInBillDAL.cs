@@ -11,7 +11,7 @@ namespace Hotel.DAL
 {
    public static  class UseRoomNumberSelectCheckInBillDAL
     {
-       public static string sql = "select * from CheckInBillTable where RoomNumber=@RoomNumber";
+       public static string sql = "select * from CheckInBillTable where RoomNumber=@RoomNumber  order by Date desc";
        public static DataTable UseRoomNumberSelectCheckInBill(string CheckOutBillRoomNumber)
         {
             DataTable table = SqlHelper.ExecuteDataTable(sql, new SqlParameter("@RoomNumber", CheckOutBillRoomNumber));

@@ -25,7 +25,7 @@ namespace Hotel.UI
         public static Guid BillNumber { set; get; }
         public static string  GuestName { set; get; }
         public static string WaiterName { set; get; }
-
+        public MainWondowRefreshDelegate windowRefresh;
         public AddCheckInBillWindow()
         {
             InitializeComponent();
@@ -57,7 +57,7 @@ namespace Hotel.UI
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CheckInBill checkInBill = new CheckInBill();
-
+            
             checkInBill.Id = Guid.NewGuid();
             checkInBill.BillNumber = BillNumber;
             checkInBill.RoomNumber = MainWondows.SelectRoomNumber;
@@ -72,6 +72,8 @@ namespace Hotel.UI
                  AddCheckInBillBLL.addCheckInBill(checkInBill);
                  tbAmountPaid.Text = "";
                  UpdateRoomBLL.updateRoomIsFull(checkInBill.RoomNumber);
+
+                 windowRefresh(sender ,e);
                  addCheckInBill.Close();
                  AddGuestToRoom.NumberOfPeaple = 0;
             }

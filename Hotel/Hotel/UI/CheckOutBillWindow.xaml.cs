@@ -27,14 +27,14 @@ namespace Hotel.UI
         {
             InitializeComponent();
         }
-
+        public MainWondowRefreshDelegate wondowRefresh;
         private void CheckOutBill_Loaded(object sender, RoutedEventArgs e)
         {
            
            DataTable checkInBill= UseRoomNumberSelectCheckInBillBLL.UseRoomNumberSelectCheckInBill(MainWondows.SelectRoomNumber);
            DataRow row = checkInBill.Rows[0];
            checkOutBill.Id = Guid .NewGuid ();
-           lbBillNumber.Content= checkOutBill.BillNumber = (Guid )row["BillNumber"];
+           lbBillNumber.Content = checkOutBill.BillNumber = (Guid)row["BillNumber"];
            lbRoomNumber .Content  = checkOutBill.RoomNumber = MainWondows.SelectRoomNumber;
            lbGuestName .Content = checkOutBill.GuestName = (string)row["GuestName"];
            lbNumberOfPeaple .Content = checkOutBill.NumberOfPeaple = (string)row["NumberOfPeaple"];
@@ -58,6 +58,7 @@ namespace Hotel.UI
         {
             AddCheckOutBillBLL.addCheckOutBill(checkOutBill);
             UpdateRoomBLL.updateRoomIsEmpty(MainWondows.SelectRoomNumber);
+            wondowRefresh( sender, e);
             checkOutBillWindow.Close();
 
         }

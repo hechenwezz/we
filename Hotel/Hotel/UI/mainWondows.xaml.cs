@@ -26,6 +26,8 @@ namespace Hotel.UI
         public static string SelectRoomNumber { set; get; }
         public static decimal RoomRate { set; get; }
         public static string RoomType { set; get; }
+        
+       
         public MainWondows()
         {
             InitializeComponent();
@@ -34,6 +36,7 @@ namespace Hotel.UI
         private void AddRoom(object sender, RoutedEventArgs e)
         {
             AddRoom addRoom = new AddRoom();
+            addRoom.RoomRefresh = RoomRefresh;
             addRoom.Show();
         }
         /// <summary>
@@ -46,6 +49,11 @@ namespace Hotel.UI
             dgRoom.ItemsSource = LoadRoomDataBLL.loadRoomData1();//绑定数据
             Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.ApplicationIdle, new Action(ProcessRows));//设置datagrid 行的字体颜色
         }
+        //public  void DataGrid_LoadedForAddRoom()
+        //{
+        //    dgRoom.ItemsSource = LoadRoomDataBLL.loadRoomData1();//绑定数据
+        //    Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.ApplicationIdle, new Action(ProcessRows));//设置datagrid 行的字体颜色
+        //}
         private void ProcessRows()//条件函数
         {
             DataTable EmptyTable = SelectRoomStateIsEmptyBLL.SelectRoomStateIsEmpty();
@@ -70,18 +78,23 @@ namespace Hotel.UI
         {
             try
             {
-                AddGuestToRoom addGuestToRoomWindow = new AddGuestToRoom();
-                CheckOutBillWindow checkOutBillWindow = new CheckOutBillWindow();
+                
+                
                 RoomShow room = (RoomShow)dgRoom.SelectedItem;
                 MainWondows.SelectRoomNumber = room.RoomNumber;
                 MainWondows.RoomRate = room.RoomRate;
                 MainWondows.RoomType = room.RoomType;
                 if (room.RoomState == "空")
                 {
+                    AddGuestToRoom addGuestToRoomWindow = new AddGuestToRoom();
+                    addGuestToRoomWindow.windowRefresh = DataGrid_Loaded;
+             
                     addGuestToRoomWindow.Show();
                 }
                 else
                 {
+                    CheckOutBillWindow checkOutBillWindow = new CheckOutBillWindow();
+                    checkOutBillWindow.wondowRefresh = DataGrid_Loaded;
                     checkOutBillWindow.Show();
                 }
             }
@@ -98,7 +111,7 @@ namespace Hotel.UI
         }
         
 
-        private void RoomControlRefresh(object sender, RoutedEventArgs e)
+        private void RoomRefresh(object sender, RoutedEventArgs e)
         {
             dgRoomControl.ItemsSource = LoadRoomDataBLL.loadRoomData2();
            
@@ -118,12 +131,24 @@ namespace Hotel.UI
 
         private void UserDataGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            dgUserData.ItemsSource = LoadUserDataBLL.loadUserData();
+            User user = new User();
+            user.UserName = LoginWindows.UserName;
+            DataTable userTable=  UseUserNameSelectUserBLL.useUserNameSelectUser(user);
+            DataRow row = userTable.Rows[0];
+            if((string)row["Duty"]=="管理员")
+            { dgUserData.ItemsSource = LoadUserDataBLL.loadUserData(); }
+           
         }
 
         private void UserDataRefresh(object sender, RoutedEventArgs e)
         {
-            dgUserData.ItemsSource = LoadUserDataBLL.loadUserData();
+            User user = new User();
+            user.UserName = LoginWindows.UserName;
+            DataTable userTable = UseUserNameSelectUserBLL.useUserNameSelectUser(user);
+            DataRow row = userTable.Rows[0];
+            if ((string)row["Duty"] == "管理员")
+            { dgUserData.ItemsSource = LoadUserDataBLL.loadUserData(); }
+           
         }
 
         private void CheckInDataGrid_Loaded(object sender, RoutedEventArgs e)
@@ -146,11 +171,25 @@ namespace Hotel.UI
 
            
         }
+        /// <summary>
+        /// 添加用户  加载用户信息录入窗体
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddUser(object sender, RoutedEventArgs e)
+        {
+            AddUserWindow addUserWindow = new AddUserWindow();
+            addUserWindow.UserRefresh = UserDataRefresh;
+            addUserWindow.Show();
+        }
+       
+           
+            
+         }   
 
-      
        
 
        
-        
-    }
+  
+   
 }

@@ -61,6 +61,7 @@
     <Compile Include="BLL\AddCheckOutBillBLL.cs" />
     <Compile Include="BLL\AddGuestBLL.cs" />
     <Compile Include="BLL\AddRoomBLL.cs" />
+    <Compile Include="BLL\AddUserBLL.cs" />
     <Compile Include="BLL\LoadCheckInDataBLL.cs" />
     <Compile Include="BLL\LoadCheckOutBillDataBLL.cs" />
     <Compile Include="BLL\LoadRoomDataBLL.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="COM\CheckInBill.cs" />
     <Compile Include="COM\CheckOutBill.cs" />
     <Compile Include="COM\Guest.cs" />
+    <Compile Include="COM\MainWondowRefreshDelegate.cs" />
     <Compile Include="COM\OperationLog.cs" />
     <Compile Include="COM\Room.cs" />
     <Compile Include="COM\RoomShow.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="DAL\AddCheckOutBillDAL.cs" />
     <Compile Include="DAL\AddGuestDAL.cs" />
     <Compile Include="DAL\AddRoomDAL.cs" />
+    <Compile Include="DAL\AddUserDAL.cs" />
     <Compile Include="DAL\LoadCheckInDataDAL.cs" />
     <Compile Include="DAL\LoadCheckOutBillDataDAL.cs" />
     <Compile Include="DAL\LoadRoomDataDAL.cs" />
@@ -102,6 +105,9 @@
     <Compile Include="UI\AddRoom.xaml.cs">
       <DependentUpon>AddRoom.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\AddUserWindow.xaml.cs">
+      <DependentUpon>AddUserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\CheckOutBillWindow.xaml.cs">
       <DependentUpon>CheckOutBillWindow.xaml</DependentUpon>
     </Compile>
@@ -117,6 +123,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\AddRoom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\AddUserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

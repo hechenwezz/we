@@ -25,7 +25,7 @@ namespace Hotel.UI
         {
             InitializeComponent();
         }
-
+        public MainWondowRefreshDelegate RoomRefresh;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Room room = new Room();
@@ -41,7 +41,7 @@ namespace Hotel.UI
             tbRoomNumber.Text = "";
             tbRoomRate.Text = "";
             tbRoomType.Text = "";
-            MainWondows wondow = new MainWondows();
+            RoomRefresh(sender, e);
             
 
         }
@@ -49,6 +49,7 @@ namespace Hotel.UI
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             addRomWindow.Close();
+           
         }
     }
 }
